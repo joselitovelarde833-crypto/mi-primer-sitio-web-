@@ -1,0 +1,342 @@
+<!-- INSTITUCIÓN: UPEMOR - Universidad Politécnica del Estado de Morelos
+
+* Estudiante: Cortes Velarde Jose Luis
+* Grupo: 3B PRO VESP - Práctica Portal Institucional LARGO
+* Actividad: Portal UPEMOR Completo (Cambia todo del CBTis 166)
+* Sede: Jiutepec, Morelos - Paseo Cuauhnáhuac #566
+* Versión: LARGA + Caras Nuevas Mejoradas
+====================================================================== -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UPEMOR - Universidad Politécnica del Estado de Morelos - Portal Oficial</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', system-ui, sans-serif}
+body{background:#f8f9ff;color:#111}
+.top-bar{background:#1e1b4b;color:white;padding:8px 20px;font-size:12px}
+.top-bar-container{max-width:1240px;margin:auto;display:flex;justify-content:space-between}
+.navbar{background:white;border-bottom:2px solid #e0e7ff;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.nav-container{max-width:1240px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;position:relative;gap:10px;flex-wrap:nowrap}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;color:#1e1b4b;flex-shrink:0;white-space:nowrap} .nav-brand span{color:#6366f1}
+.nav-brand small{display:block;font-size:10px;letter-spacing:2px;color:#6366f1}
+.nav-links{display:flex;align-items:center;flex-shrink:0} .nav-links a{color:#333;text-decoration:none;margin-left:14px;font-size:13px;font-weight:600;white-space:nowrap} .nav-links a:hover{color:#6366f1}
+.btn-nav-login{background:#6366f1;color:white!important;padding:9px 16px;border-radius:24px;font-weight:800}
+.hero-section{padding:50px 20px;background:linear-gradient(120deg,#1e1b4b 0%, #312e81 50%, #4338ca 100%);color:white;position:relative;overflow:hidden}
+.hero-container{max-width:1240px;margin:auto;display:flex;gap:40px;align-items:center}
+.hero-text-side{flex:1.2} .hero-image-side{flex:0.8}
+.hero-tag{background:#a5b4fc;color:#1e1b4b;padding:7px 14px;border-radius:20px;font-size:11px;font-weight:900;letter-spacing:1px}
+.hero-text-side h1{font-size:40px;margin:18px 0;line-height:1.1} .hero-text-side h1 mark{background:#facc15;color:#1e1b4b;padding:2px 8px;border-radius:8px}
+.hero-text-side p{color:#c7d2fe;font-size:15px;line-height:1.6}
+.hero-cta-box{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-orange{background:#facc15;color:#1e1b4b;padding:13px 24px;border-radius:12px;text-decoration:none;font-weight:900;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;padding:13px 24px;border-radius:12px;text-decoration:none;font-weight:700;backdrop-filter:blur(10px)}
+.hero-benefits{margin-top:22px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:#a5b4fc}
+.image-collage{display:grid;grid-template-columns:1.1fr 0.9fr;gap:12px}
+.collage-main{height:380px;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.3)} .collage-main img,.collage-sub img{width:100%;height:100%;object-fit:cover}
+.collage-sub{display:grid;gap:12px} .collage-sub div{border-radius:20px;overflow:hidden;height:184px;box-shadow:0 10px 20px rgba(0,0,0,0.2)}
+.careers-section{padding:60px 20px;background:#f8faff} .section-container{max-width:1240px;margin:auto}
+.section-header{text-align:center;margin-bottom:36px} .section-header h2{font-size:32px;color:#1e1b4b} .section-header h2 mark{background:#e0e7ff;color:#4338ca;padding:4px 10px;border-radius:10px}
+.section-header p{color:#64748b;margin-top:8px}
+.careers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.career-card{background:white;border-radius:20px;overflow:hidden;border:1px solid #e0e7ff;transition:0.3s;box-shadow:0 4px 12px rgba(0,0,0,0.04)} .career-card:hover{transform:translateY(-6px);box-shadow:0 20px 30px rgba(99,102,241,0.15)}
+.career-img-container{height:170px;overflow:hidden;position:relative} .career-img-container img{width:100%;height:100%;object-fit:cover}
+.career-badge{position:absolute;top:10px;left:10px;background:#6366f1;color:white;font-size:10px;padding:4px 10px;border-radius:20px;font-weight:800}
+.career-content{padding:16px} .career-content h3{font-size:14px;color:#1e1b4b} .career-content p{font-size:11px;color:#64748b;margin-top:6px;line-height:1.4}
+.teachers-section{padding:50px 20px;background:#1e1b4b;color:white} .teachers-container{max-width:1240px;margin:auto}
+.teachers-header{display:flex;justify-content:space-between;align-items:end} .teachers-tag{background:#4338ca;color:#a5b4fc;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:800}
+.teachers-header h2{font-size:28px;margin-top:10px} .teachers-header p{color:#a5b4fc;font-size:13px;margin-top:6px}
+.teachers-nav-buttons{display:flex;gap:10px} .nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid #4338ca;background:#312e81;color:white;cursor:pointer;font-size:20px}
+.teachers-grid{display:flex;gap:18px;overflow:hidden;margin-top:28px;scroll-behavior:smooth}
+.teacher-card{min-width:260px;background:rgba(255,255,255,0.06);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(10px)} .teacher-card img{width:100%;height:180px;object-fit:cover;object-position:top} .teacher-info{padding:14px} .teacher-info h3{font-size:13px;color:#facc15} .teacher-info p{font-size:11px;color:#a5b4fc;margin-top:5px}
+.hero-form-side{flex:1} .cbtis-hero-form-card{background:white;color:#111;padding:26px;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,0.2)}
+.form-control-input,.form-control-select,.form-control-date,.form-control-textarea{width:100%;padding:11px 14px;border:1.5px solid #e0e7ff;border-radius:12px;margin-bottom:12px;font-size:13px;background:#f8faff}
+.form-control-input:focus{border-color:#6366f1;outline:none}
+.form-submit-btn{width:100%;background:#6366f1;color:white;border:none;padding:13px;border-radius:12px;font-weight:900;cursor:pointer;font-size:14px}
+.form-submit-btn:hover{background:#4338ca}
+.convenios-section{padding:50px 0;background:white;overflow:hidden} .convenios-container{max-width:1240px;margin:auto;padding:0 20px}
+.marquee-wrapper{overflow:hidden;white-space:nowrap;margin-top:16px} .marquee-track{display:flex;gap:14px;animation:scroll 30s linear infinite;width:max-content} .marquee-track-bottom{animation-direction:reverse;animation-duration:32s}
+.convenio-card{background:#f8faff;border:1px solid #e0e7ff;padding:12px 20px;border-radius:30px;font-size:12px;font-weight:700;min-width:160px;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.footer{background:#0f0f1e;border-top:1px solid #1e1b4b;padding:24px 20px} .footer-container{max-width:1240px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.footer-socials a{color:white;text-decoration:none;margin-left:10px;background:#1e1b4b;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%}
+.curiosidades{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px} .curio{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);padding:14px;border-radius:14px} .curio h4{font-size:12px;color:#facc15} .curio p{font-size:11px;color:#a5b4fc;margin-top:4px}
+@media(max-width:900px){.hero-container{flex-direction:column}.careers-grid{grid-template-columns:1fr 1fr}.curiosidades{grid-template-columns:1fr}.image-collage{grid-template-columns:1fr}}
+.hamburger{display:none;background:#6366f1;color:white;border:none;width:44px;height:44px;border-radius:12px;cursor:pointer;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:3px;background:white;margin:5px auto;border-radius:3px}
+.barra-papas{background:white;border-bottom:1px solid #e0e7ff;display:flex;justify-content:center;gap:6px;padding:8px 12px;position:relative;z-index:90}
+.papa{position:relative}
+.papa-btn{background:none;border:none;color:#1e1b4b;font-size:14px;font-weight:800;padding:9px 14px;cursor:pointer;display:flex;align-items:center;gap:6px;border-radius:20px}
+.papa-btn:hover{background:#eef2ff;color:#6366f1}
+.papa-btn .flecha{font-size:10px;transition:0.3s}
+.papa.open .papa-btn{color:#6366f1;background:#eef2ff}
+.papa.open .papa-btn .flecha{transform:rotate(180deg)}
+.papa-contenido{display:none;position:absolute;top:48px;left:50%;transform:translateX(-50%);width:340px;max-height:70vh;overflow-y:auto;background:white;border:1.5px solid #e0e7ff;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.20);padding:10px;z-index:200;text-align:center}
+.papa.open .papa-contenido{display:block}
+.sub-btn{width:100%;background:none;border:none;color:#4338ca;font-size:12px;font-weight:700;padding:9px 4px 4px 4px;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:6px}
+.sub-btn .flecha2{font-size:10px;transition:0.3s}
+.sub.open .sub-btn{color:#1e1b4b}
+.sub.open .sub-btn .flecha2{transform:rotate(180deg)}
+.info-box{display:none;position:relative;background:#f8faff;border:1px solid #e0e7ff;border-left:5px solid #6366f1;border-radius:10px;padding:12px 30px 10px 10px;margin:0 4px 8px 4px;font-size:11px;line-height:1.5;color:#334155;text-align:left}
+.sub.open .info-box{display:block}
+.info-box.oculto{display:none!important}
+.info-box b{color:#4338ca}
+.btn-cerrar-info{position:absolute;top:6px;right:6px;width:22px;height:22px;border-radius:50%;border:1px solid #e0e7ff;background:white;font-size:12px;font-weight:900;cursor:pointer;line-height:1}
+.menu-hamburguesa{display:none;position:absolute;top:68px;right:10px;width:360px;max-width:92vw;max-height:80vh;overflow-y:auto;background:white;border:1.5px solid #e0e7ff;border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,0.25);padding:12px;z-index:200;text-align:center}
+.menu-hamburguesa.open{display:block}
+.menu-hamburguesa .papa{position:static}
+.menu-hamburguesa .papa-contenido{position:static;transform:none;width:auto;max-height:none;box-shadow:none;border:none;background:#f8faff}
+.menu-top{display:flex;justify-content:space-between;align-items:center;padding:2px 6px}
+.menu-top small{font-size:10px;letter-spacing:1px;color:#6366f1;font-weight:900}
+.btn-cerrar-menu{background:none;border:none;color:#1e1b4b;font-size:24px;font-weight:900;cursor:pointer;padding:2px 8px}
+.menu-hamburguesa a.link-menu{display:block;color:#1e1b4b;text-decoration:none;font-size:14px;font-weight:700;padding:10px;border-radius:10px}
+.menu-hamburguesa hr{border:none;border-top:1px solid #e0e7ff;margin:8px 0}
+@media(max-width:900px){
+  .nav-links{display:none}
+  .barra-papas{display:none}
+  .nav-brand{font-size:19px}
+  .hamburger{display:block}
+  .top-bar{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"><div class="top-bar-container"><div>📍 Jiutepec, Morelos - Paseo Cuauhnáhuac #566, Lomas del Texcal</div><div>📞 777 229 3500 | 💬 WhatsApp 777 492 6312</div></div></div>
+
+<header class="navbar">
+<div class="nav-container">
+<div class="nav-brand">🦁 UPEMOR <div><span>Universidad Politécnica</span><small>ESTADO DE MORELOS</small></div></div>
+<nav class="nav-links">
+<a href="#inicio">Inicio</a>
+<a href="#oferta">Carreras</a>
+<a href="#docentes">Docentes</a>
+<a href="#informes" class="btn-nav-login">🎓 Alumnos</a>
+</nav>
+<button class="hamburger" id="btn-hamburguesa" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+
+<!-- COMO ESTABA ANTES, HNO, CON LAS PAPAS ADENTRO, SIN LO AZUL -->
+<div class="menu-hamburguesa" id="menu-movil">
+<div class="menu-top"><small>MENÚ UPEMOR</small><button class="btn-cerrar-menu" id="btn-cerrar-menu">X</button></div>
+<a class="link-menu" href="#inicio">Inicio</a>
+<a class="link-menu" href="#oferta">Carreras - 7 ingenierías</a>
+<a class="link-menu" href="#docentes">Docentes</a>
+<a class="link-menu" href="#informes">Solicita informes</a>
+<hr>
+<div class="papa"><button class="papa-btn">Becas <span class="flecha">▾</span></button><div class="papa-contenido"><div class="sub"><button class="sub-btn">1. Beca Benito Juárez <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>UPEMOR es pública, <b>beca Benito Juárez.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Se pide en Servicios Escolares, <b>lleva CURP.</b></div></div><div class="sub"><button class="sub-btn">2. Beca de Excelencia <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button><b>Promedio alto,</b> te dan beca.</div><div class="info-box"><button class="btn-cerrar-info">X</button>Se renueva si <b>no bajas promedio.</b></div></div></div></div>
+<div class="papa"><button class="papa-btn">Examen <span class="flecha">▾</span></button><div class="papa-contenido"><div class="sub"><button class="sub-btn">1. Examen CENEVAL <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Dura <b>4.5 horas, en junio.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Trae <b>ficha, INE y lápiz.</b></div></div><div class="sub"><button class="sub-btn">2. Propedéutico <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Es en <b>julio.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Inicio en <b>septiembre.</b></div></div></div></div>
+<div class="papa"><button class="papa-btn">Costos <span class="flecha">▾</span></button><div class="papa-contenido"><div class="sub"><button class="sub-btn">1. Colegiatura <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button><b>Colegiatura accesible.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Pagas por <b>cuatrimestre.</b></div></div><div class="sub"><button class="sub-btn">2. Ficha y pago <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Pagas <b>ficha + cuatrimestre.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Info al <b>777 492 6312.</b></div></div></div></div>
+<div class="papa"><button class="papa-btn">Estancias <span class="flecha">▾</span></button><div class="papa-contenido"><div class="sub"><button class="sub-btn">1. Empresas <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button><b>Nissan y Continental.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button><b>Bayer y Saint-Gobain.</b></div></div><div class="sub"><button class="sub-btn">2. Te quedas a trabajar <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Proyecto <b>real en empresa.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Muchos <b>se quedan a trabajar.</b></div></div></div></div>
+<div class="papa"><button class="papa-btn">Pase 9.0 <span class="flecha">▾</span></button><div class="papa-contenido"><div class="sub"><button class="sub-btn">1. Pase directo <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button><b>9.0 o más,</b> no haces examen.</div><div class="info-box"><button class="btn-cerrar-info">X</button>Entras <b>directo.</b></div></div><div class="sub"><button class="sub-btn">2. Qué llevar <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Llevas <b>certificado.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button><b>Pre-registro y ficha.</b></div></div></div></div>
+</div>
+</div>
+</header>
+
+<div class="barra-papas">
+<div class="papa">
+<button class="papa-btn">Becas <span class="flecha">▾</span></button>
+<div class="papa-contenido">
+<div class="sub"><button class="sub-btn">1. Beca Benito Juárez <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>UPEMOR es pública, puedes pedir <b>beca Benito Juárez.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Se pide en Servicios Escolares, cada cuatrimestre. <b>Lleva CURP y comprobante.</b></div></div>
+<div class="sub"><button class="sub-btn">2. Beca de Excelencia <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Si tienes <b>promedio alto, te dan beca de excelencia.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Se renueva cada cuatrimestre si <b>no bajas tu promedio.</b></div></div>
+</div>
+</div>
+<div class="papa">
+<button class="papa-btn">Examen <span class="flecha">▾</span></button>
+<div class="papa-contenido">
+<div class="sub"><button class="sub-btn">1. Examen CENEVAL <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Dura <b>4.5 horas, es en junio.</b> Estudia mate y español.</div><div class="info-box"><button class="btn-cerrar-info">X</button>Trae <b>ficha, INE y lápiz del 2.</b></div></div>
+<div class="sub"><button class="sub-btn">2. Propedéutico <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Es en <b>julio,</b> para nivelarte en mate y español.</div><div class="info-box"><button class="btn-cerrar-info">X</button>Inicio de clases en <b>septiembre.</b></div></div>
+</div>
+</div>
+<div class="papa">
+<button class="papa-btn">Costos <span class="flecha">▾</span></button>
+<div class="papa-contenido">
+<div class="sub"><button class="sub-btn">1. Colegiatura <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Escuela pública, <b>colegiatura accesible.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Pagas por <b>cuatrimestre, no por mes.</b></div></div>
+<div class="sub"><button class="sub-btn">2. Ficha y pago <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Pagas <b>ficha + cuatrimestre.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>El costo exacto te lo confirman al <b>777 492 6312.</b></div></div>
+</div>
+</div>
+<div class="papa">
+<button class="papa-btn">Estancias <span class="flecha">▾</span></button>
+<div class="papa-contenido">
+<div class="sub"><button class="sub-btn">1. Empresas <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>En <b>Nissan y Continental Automotive.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>También en <b>Bayer y Saint-Gobain.</b></div></div>
+<div class="sub"><button class="sub-btn">2. Te quedas a trabajar <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Haces un <b>proyecto real en la empresa.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Muchos <b>se quedan a trabajar ahí,</b> es tu primer trabajo.</div></div>
+</div>
+</div>
+<div class="papa">
+<button class="papa-btn">Pase 9.0 <span class="flecha">▾</span></button>
+<div class="papa-contenido">
+<div class="sub"><button class="sub-btn">1. Pase directo <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Si tienes <b>9.0 o más en prepa, no haces examen.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Entras <b>directo a UPEMOR.</b></div></div>
+<div class="sub"><button class="sub-btn">2. Qué llevar <span class="flecha2">▾</span></button><div class="info-box"><button class="btn-cerrar-info">X</button>Llevas <b>certificado y pre-registro.</b></div><div class="info-box"><button class="btn-cerrar-info">X</button>Y tu <b>ficha,</b> y ya quedas inscrito en UPEMOR.</div></div>
+</div>
+</div>
+</div>
+
+<section class="hero-section" id="inicio">
+<div class="hero-container">
+<div class="hero-text-side">
+<span class="hero-tag">🔥 ¡FICHAS 2026 ABIERTAS! 1500 LUGARES</span>
+<h1>Educación Superior <mark>Tecnológica</mark> con Validez Oficial SEP</h1>
+<p>Estudia en la <mark>UPEMOR</mark>, la universidad de los <u>Lobos</u> con 21 años de excelencia. 7 carreras de alta demanda, modelo por competencias, estancias profesionales y <mark>laboratorios de última generación</mark> en Jiutepec, Morelos.</p>
+<div class="hero-cta-box">
+<a href="#informes" class="btn-orange">📩 Solicita informes →</a>
+<a href="#" class="btn-ghost" onclick="alert('🦁 ¡Rugido Lobo! Bienvenido a UPEMOR')">▶ Tour Virtual</a>
+<button class="btn-ghost" onclick="document.getElementById('curiosidades').scrollIntoView({behavior:'smooth'})">✨ Datos curiosos</button>
+</div>
+<div class="hero-benefits">
+<span>✓ Titulación directa + Cédula profesional</span>
+<span>✓ Colegiaturas accesibles - Escuela pública</span>
+<span>✓ Prácticas en laboratorios equipados y empresas</span>
+<span>✓ Intercambios y becas Benito Juárez</span>
+</div>
+<div class="curiosidades" id="curiosidades">
+<div class="curio"><h4>🦁 Fundada en 2004</h4><p>21 años formando ingenieros, reconocida por ANFEI como una de las mejores.</p></div>
+<div class="curio"><h4>📊 +3,242 Estudiantes</h4><p>Modelo cuatrimestral, 10 a 15 cuatrimestres, aprendizaje práctico.</p></div>
+<div class="curio"><h4>🏆 Acreditaciones</h4><p>Todas las carreras acreditadas, con maestrías y doctorado en Biotecnología.</p></div>
+</div>
+</div>
+<div class="hero-image-side">
+<div class="image-collage">
+<div class="collage-main"><img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=700&q=80" alt="UPEMOR Campus"></div>
+<div class="collage-sub">
+<div><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80" alt="Laboratorio"></div>
+<div><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80" alt="Estudiantes UPEMOR"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="oferta" class="careers-section">
+<div class="section-container">
+<div class="section-header">
+<h2>Nuestras 7 Carreras <mark>UPEMOR</mark></h2>
+<p>Elige tu ingeniería y prepárate con los Lobos - Oferta oficial 2026</p>
+</div>
+<div class="careers-grid">
+<div class="career-card"><div class="career-img-container"><span class="career-badge">🧬 TOP 1</span><img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=500&q=80" alt="Biotecnologia"></div><div class="career-content"><h3>🧬 Ing. en Biotecnología</h3><p>Laboratorios de bioreactores, genética y microbiología. Con maestría y doctorado.</p></div></div>
+<div class="career-card"><div class="career-img-container"><span class="career-badge">💻 SISTEMAS</span><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" alt="TI"></div><div class="career-content"><h3>💻 Ing. en TI e Innovación Digital</h3><p>Desarrollo web, apps, ciberseguridad y gestión de proyectos. La más demandada.</p></div></div>
+<div class="career-card"><div class="career-img-container"><span class="career-badge">🌿 AMBIENTAL</span><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=500&q=80" alt="Ambiental"></div><div class="career-content"><h3>🌿 Ing. Ambiental y Sustentabilidad</h3><p>Energías renovables, tratamiento de agua y proyectos sustentables para Morelos.</p></div></div>
+<div class="career-card"><div class="career-img-container"><span class="career-badge">⚙️ INDUSTRIAL</span><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="Industrial"></div><div class="career-content"><h3>⚙️ Ingeniería Industrial</h3><p>Optimización de procesos, calidad y logística en empresas como Nissan y Continental.</p></div></div>
+<div class="career-card"><div class="career-img-container"><span class="career-badge">📈 FINANCIERA</span><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=500&q=80" alt="Financiera"></div><div class="career-content"><h3>📈 Ingeniería Financiera</h3><p>Finanzas corporativas, bolsa de valores y análisis de riesgos. Con maestría propia.</p></div></div>
+<div class="career-card"><div class="career-img-container"><span class="career-badge">🔌 ELECTRÓNICA</span><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Electronicos"></div><div class="career-content"><h3>🔌 Ing. en Sistemas Electrónicos</h3><p>Robótica, IoT, telecomunicaciones y electrónica de potencia.</p></div></div>
+<div class="career-card"><div class="career-img-container"><span class="career-badge">📊 ADMIN</span><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=500&q=80" alt="Administracion"></div><div class="career-content"><h3>📊 Lic. en Administración</h3><p>Gestión empresarial, recursos humanos y emprendimiento. Base para todas las ingenierías.</p></div></div>
+<div class="career-card" style="background:#1e1b4b;color:white"><div class="career-content"><h3 style="color:#facc15">✨ Dato Curioso UPEMOR</h3><p style="color:#a5b4fc">Mascota Lobo, examen con CENEVAL, 4.5 horas de prueba, propedéutico en julio y inicio en septiembre. ¡Pase directo si tienes 9.0!</p><button onclick="alert('UPEMOR: informes@upemor.edu.mx - 777 492 6312')" style="margin-top:10px;background:#facc15;border:none;padding:8px 14px;border-radius:20px;font-weight:800;cursor:pointer">📩 Contactar</button></div></div>
+</div>
+</div>
+</section>
+
+<section class="teachers-section" id="docentes">
+<div class="teachers-container">
+<div class="teachers-header"><div><span class="teachers-tag">¿QUIÉN ENSEÑA EN UPEMOR?</span><h2>Nuestra Plantilla Docente <mark style="background:#facc15;color:#1e1b4b">Elite</mark></h2><p>Especialistas activos, con maestrías y doctorados. Usa los botones para recorrer - CARAS NUEVAS</p></div><div class="teachers-nav-buttons"><button id="btn-prev" class="nav-btn">‹</button><button id="btn-next" class="nav-btn">›</button></div></div>
+<div class="teachers-grid" id="teachers-track">
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Rector"><div class="teacher-info"><h3>Dr. Jorge Morales Barud</h3><p>Rector UPEMOR, Doctor en Derecho, 21 años de liderazgo académico.</p></div></div>
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80" alt="Biotecnologia"><div class="teacher-info"><h3>Dra. Elena Torres - Biotecnología</h3><p>Doctora en Biotecnología, laboratorio de genética y biorreactores UPEMOR.</p></div></div>
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="TI"><div class="teacher-info"><h3>Mtro. Luis Hernández - TI</h3><p>Ing. TI e Innovación Digital, ciberseguridad y desarrollo de apps.</p></div></div>
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt="Industrial"><div class="teacher-info"><h3>Ing. Carlos Mendoza - Industrial</h3><p>Lean Manufacturing, procesos en Continental Automotive y Nissan.</p></div></div>
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Ambiental"><div class="teacher-info"><h3>Mtra. Sofía Rivera - Ambiental</h3><p>Ing. Ambiental, proyectos sustentables y energías renovables en Morelos.</p></div></div>
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Financiera"><div class="teacher-info"><h3>Mtra. Valeria Cruz - Financiera</h3><p>Maestra en Finanzas Corporativas, bolsa de valores y análisis de riesgos.</p></div></div>
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="Electronica"><div class="teacher-info"><h3>Ing. Pedro García - Electrónica</h3><p>Ing. Sistemas Electrónicos, robótica, IoT y telecomunicaciones.</p></div></div>
+<div class="teacher-card"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="Administracion"><div class="teacher-info"><h3>Lic. Ana Morales - Administración</h3><p>Lic. Administración y Gestión, emprendimiento y recursos humanos.</p></div></div>
+</div>
+</div>
+</section>
+
+<section class="hero-section" style="background:#f8faff;color:#1e1b4b" id="informes">
+<div class="hero-container">
+<div class="hero-text-side">
+<span class="hero-tag" style="background:#6366f1;color:white">¡INSCRIPCIONES ABIERTAS!</span>
+<h1 style="color:#1e1b4b">¿Tienes dudas? <mark style="background:#6366f1;color:white">UPEMOR te ayuda</mark></h1>
+<p style="color:#64748b">Déjanos tus datos y te contactamos. Conoce todo sobre la UPEMOR en Jiutepec.</p>
+<div style="color:#1e1b4b;margin-top:16px;font-size:13px;line-height:1.8">
+<p>✓ Planes cuatrimestrales y duración oficial (3.5 a 5 años)</p>
+<p>✓ Costos públicos, becas Benito Juárez y Pase Directo con 9.0</p>
+<p>✓ Proceso: Pre-registro → Ficha → Examen CENEVAL 7 junio → Propedéutico julio</p>
+<p>✓ Validez oficial SEP, acreditaciones y estancias profesionales</p>
+</div>
+<div style="margin-top:18px;background:white;padding:14px;border-radius:14px;border:1px solid #e0e7ff">
+<p style="font-size:12px;color:#1e1b4b;font-weight:800">📍 Ubicación: Paseo Cuauhnáhuac #566, Lomas del Texcal, Jiutepec, Morelos</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.5!2d-99.18!3d18.88!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cddf5d0b0b0b%3A0x0!2sUPEMOR!5e0!3m2!1ses!2smx!4v1" style="width:100%;height:140px;border:none;border-radius:10px;margin-top:8px"></iframe>
+</div>
+</div>
+<div class="hero-form-side">
+<div class="cbtis-hero-form-card">
+<h3 style="color:#1e1b4b">🦁 Solicita informes UPEMOR</h3>
+<p style="font-size:11px;color:#64748b;margin-bottom:12px">Responde en menos de 24h por WhatsApp</p>
+<form onsubmit="enviar(event)">
+<input type="text" required placeholder="Nombre" class="form-control-input">
+<input type="text" required placeholder="Apellido" class="form-control-input">
+<input type="email" required placeholder="Correo electrónico" class="form-control-input">
+<input type="tel" required placeholder="Teléfono / WhatsApp" class="form-control-input">
+<select required class="form-control-select"><option value="">Elige el nivel</option><option selected>Licenciatura / Ingeniería (UPEMOR)</option><option>Maestría</option><option>Doctorado en Biotecnología</option></select>
+<select required class="form-control-select">
+<option value="">Elige tu carrera UPEMOR de interés</option>
+<optgroup label="Ingenierías UPEMOR - 7 carreras">
+<option>🧬 Ing. en Biotecnología</option><option>💻 Ing. en Tecnologías de la Información e Innovación Digital</option><option>🌿 Ing. Ambiental y Sustentabilidad</option><option>⚙️ Ingeniería Industrial</option><option>📈 Ingeniería Financiera</option><option>🔌 Ing. en Sistemas Electrónicos</option><option>📊 Lic. en Administración y Gestión Empresarial</option>
+</optgroup>
+</select>
+<label style="font-size:11px;color:#64748b">Fecha estimada de ingreso:</label>
+<input type="date" required class="form-control-date">
+<textarea rows="2" placeholder="Escribe tus dudas sobre UPEMOR..." class="form-control-textarea"></textarea>
+<label style="font-size:11px;display:flex;gap:6px"><input type="checkbox" required> Acepto aviso de privacidad UPEMOR y recibir info al WhatsApp 777 492 6312</label>
+<button type="submit" class="form-submit-btn">🚀 Solicitar informes UPEMOR</button>
+<div style="display:flex;gap:8px;margin-top:10px"><button type="button" onclick="this.closest('form').reset(); alert('Formulario limpiado 🗑️')" style="flex:1;padding:10px;border-radius:10px;border:1px solid #e0e7ff;background:white;cursor:pointer">🗑️ Limpiar</button><button type="button" onclick="alert('Formulario cerrado ❌')" style="flex:1;padding:10px;border-radius:10px;border:1px solid #e0e7ff;background:white;cursor:pointer">❌ Cerrar</button></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<section class="convenios-section">
+<div class="convenios-container">
+<div class="section-header"><span class="teachers-tag">¿QUIÉNES CONFÍAN EN UPEMOR?</span><h2>Nuestros Convenios <mark>Morelos</mark></h2><p>Empresas donde hacen estancias y contratan Lobos UPEMOR</p></div>
+<div class="marquee-wrapper"><div class="marquee-track">
+<div class="convenio-card">🚗 Nissan Mexicana</div><div class="convenio-card">⚙️ Continental Automotive</div><div class="convenio-card">💻 Microsoft</div><div class="convenio-card">🌐 Cisco Networking</div><div class="convenio-card">🔬 Bayer</div><div class="convenio-card">🏭 Saint-Gobain</div><div class="convenio-card">🧪 Laboratorio Liomont</div><div class="convenio-card">🏢 Grupo Bimbo</div>
+<div class="convenio-card">🚗 Nissan Mexicana</div><div class="convenio-card">⚙️ Continental Automotive</div><div class="convenio-card">💻 Microsoft</div><div class="convenio-card">🌐 Cisco Networking</div><div class="convenio-card">🔬 Bayer</div><div class="convenio-card">🏭 Saint-Gobain</div><div class="convenio-card">🧪 Laboratorio Liomont</div><div class="convenio-card">🏢 Grupo Bimbo</div>
+</div></div>
+<div class="marquee-wrapper"><div class="marquee-track marquee-track-bottom">
+<div class="convenio-card">⛽ PEMEX</div><div class="convenio-card">💧 CFE</div><div class="convenio-card">🏦 BBVA</div><div class="convenio-card">📦 Mercado Libre</div><div class="convenio-card">🎓 UNAM Vinculación</div><div class="convenio-card">🏥 IMSS Morelos</div><div class="convenio-card">🌿 SEMARNAT</div><div class="convenio-card">🔌 Intel</div>
+<div class="convenio-card">⛽ PEMEX</div><div class="convenio-card">💧 CFE</div><div class="convenio-card">🏦 BBVA</div><div class="convenio-card">📦 Mercado Libre</div><div class="convenio-card">🎓 UNAM Vinculación</div><div class="convenio-card">🏥 IMSS Morelos</div><div class="convenio-card">🌿 SEMARNAT</div><div class="convenio-card">🔌 Intel</div>
+</div></div>
+</div>
+</section>
+
+<footer class="footer"><div class="footer-container"><div style="color:#a5b4fc;font-size:12px"><p>🦁 UPEMOR - Universidad Politécnica del Estado de Morelos © 2026</p><p>Desarrollado por: Cortes Velarde Jose Luis - 3B PRO VESP | Lobos UPEMOR - Jiutepec, Morelos</p></div><div class="footer-socials"><a href="#">f</a><a href="#">ig</a><a href="#">💬</a><a href="#">▶</a></div></div></footer>
+
+<script>
+const track=document.getElementById('teachers-track');
+document.getElementById('btn-next').onclick=()=>track.scrollBy({left:280,behavior:'smooth'});
+document.getElementById('btn-prev').onclick=()=>track.scrollBy({left:-280,behavior:'smooth'});
+function enviar(e){e.preventDefault(); alert('🦁 ¡Gracias Lobo! Tu solicitud UPEMOR fue enviada. Te contactamos por WhatsApp 777 492 6312');}
+const btnH=document.getElementById('btn-hamburguesa');
+const menuM=document.getElementById('menu-movil');
+btnH.onclick=function(e){e.stopPropagation();menuM.classList.toggle('open');};
+document.getElementById('btn-cerrar-menu').onclick=function(){menuM.classList.remove('open');};
+document.querySelectorAll('.link-menu').forEach(function(link){link.onclick=function(){menuM.classList.remove('open');};});
+document.querySelectorAll('.papa-btn').forEach(function(btn){
+btn.onclick=function(e){
+e.stopPropagation();
+var papa=btn.parentElement;
+var estaba=papa.classList.contains('open');
+document.querySelectorAll('.papa').forEach(function(p){p.classList.remove('open');});
+if(!estaba){
+papa.classList.add('open');
+papa.querySelectorAll('.sub').forEach(function(s){s.classList.remove('open');});
+papa.querySelectorAll('.info-box').forEach(function(t){t.classList.remove('oculto');});
+}
+};
+});
+document.querySelectorAll('.sub-btn').forEach(function(btn){
+btn.onclick=function(e){
+e.stopPropagation();
+btn.parentElement.classList.toggle('open');
+};
+});
+document.querySelectorAll('.btn-cerrar-info').forEach(function(x){
+x.onclick=function(e){
+e.stopPropagation();
+x.parentElement.classList.add('oculto');
+};
+});
+</script>
+</body>
+</html>
